@@ -1,0 +1,65 @@
+[project]
+name = "dummy"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Simon Alibert",email = "simon.alibert@huggingface.co"}
+]
+license = {text = "MIT"}
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "setuptools>=75.8.2"
+]
+
+
+[project.optional-dependencies]
+dev = ["pytest>=8.3.4", "pre-commit>=4.1.0"]
+
+
+[tool.poetry]
+requires-poetry = ">=2.1"
+
+[tool.ruff]
+line-length = 110
+target-version = "py310"
+exclude = [
+    "tests/data",
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".git-rewrite",
+    ".hg",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".pytype",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "node_modules",
+    "venv",
+]
+
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I", "N", "B", "C4", "SIM"]
+
+
+[tool.typos]
+default.extend-ignore-re = [
+    "(?Rm)^.*(#|//)\\s*spellchecker:disable-line$",  # spellchecker:disable-line
+    "(?s)(#|//)\\s*spellchecker:off.*?\\n\\s*(#|//)\\s*spellchecker:on"  # spellchecker:<on|off>
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
